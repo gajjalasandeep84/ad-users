@@ -1,0 +1,33 @@
+# Maven build
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+log/
+logs/
+
+# Spring Boot specific
+*.log
+*.out
+*.pid
+
+# Eclipse/STS
+.classpath
+.project
+.settings/
+.springBeans
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Environment/config secrets
+application-ldap.properties
