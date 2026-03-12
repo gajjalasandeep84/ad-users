@@ -1,0 +1,53 @@
+# ============================================
+# EXTERNAL CONFIGURATION TEMPLATE
+# Copy this file and fill in your values
+# ============================================
+# IMPORTANT: This is a TEMPLATE file. Do NOT commit files with actual secrets/values.
+#
+# Setup Instructions:
+# 1. Copy this file to: C:\Workspaces\adUsersConfig\application-external.properties
+# 2. Fill in all YOUR_* placeholders with actual values
+# 3. Set environment variable: CONFIG_PATH=C:\Workspaces\adUsersConfig\
+# 4. Restart the application
+#
+# The application will automatically load configuration from the external file
+# instead of having separate environment variables for each setting.
+
+# ===== CORE LDAP CONFIGURATION =====
+# The main LDAP server for user queries
+SPRING_LDAP_URLS=ldaps://YOUR_LDAP_SERVER:636
+SPRING_LDAP_BASE=DC=YOUR_DOMAIN,DC=com
+SPRING_LDAP_SEARCH_BASE=OU=YOUR_OU,DC=YOUR_DOMAIN,DC=com
+LDAP_SEARCH_BASE=OU=YOUR_OU
+
+# Service account credentials for LDAP binding
+LDAP_USERNAME=YOUR_SERVICE_ACCOUNT@YOUR_DOMAIN.COM
+LDAP_PASSWORD=YOUR_SERVICE_ACCOUNT_PASSWORD
+
+# ===== CERTIFICATE CONFIGURATION =====
+# Path to the truststore containing CA certificates
+TRUSTSTORE_PATH=C:\Workspaces\adUsersConfig\trust.p12
+TRUSTSTORE_PASSWORD=YOUR_TRUSTSTORE_PASSWORD
+
+# ===== TEST LDAP CONFIGURATION =====
+# Separate test LDAP server (optional)
+AD_TEST_URL=ldaps://YOUR_TEST_LDAP_SERVER:636
+AD_TEST_BASE=DC=YOUR_TEST_DOMAIN,DC=com
+AD_TEST_SEARCH_BASE=OU=TEST_OU,DC=YOUR_TEST_DOMAIN,DC=com
+LDAP_TEST_USER=YOUR_TEST_SERVICE_ACCOUNT@YOUR_TEST_DOMAIN.COM
+LDAP_TEST_PASS=YOUR_TEST_SERVICE_ACCOUNT_PASSWORD
+
+# ===== PRODUCTION LDAP CONFIGURATION =====
+# Production LDAP server (keep separate for safety)
+AD_PROD_URL=ldaps://YOUR_PROD_LDAP_SERVER:636
+AD_PROD_BASE=DC=YOUR_PROD_DOMAIN,DC=com
+AD_PROD_SEARCH_BASE=OU=PROD_OU,DC=YOUR_PROD_DOMAIN,DC=com
+LDAP_PROD_USER=YOUR_PROD_SERVICE_ACCOUNT@YOUR_PROD_DOMAIN.COM
+LDAP_PROD_PASS=YOUR_PROD_SERVICE_ACCOUNT_PASSWORD
+
+# ===== NOTES =====
+# - Never commit the filled-in version of this file to GitHub
+# - Keep separate config files for dev, test, and production
+# - Store production credentials in a secure location (vault, secret manager, etc.)
+# - Rotate service account passwords regularly
+# - Ensure the truststore file has restrictive file permissions (readable by app only)
