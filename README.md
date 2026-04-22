@@ -48,56 +48,35 @@ ad-users-main/
 
 ## Quick Start
 
-### 1. Configuration Setup
+### ⚠️ IMPORTANT: Configuration Required
 
-#### Option A: Using External Configuration (Recommended for Production)
+**All sensitive configuration (LDAP credentials, passwords, certificates) is externalized and NOT included in the repository.**
 
-Copy the external configuration file to your deployment location:
+👉 **[See SETUP_GUIDE.md for complete setup instructions](SETUP_GUIDE.md)** - Follow this guide to:
+1. Create your config directory
+2. Copy and fill in `application-external.properties` 
+3. Place your `trust.p12` certificate
+4. Set environment variables
+5. Run the application
 
-```bash
-# Create config directory
-mkdir -p C:\Workspaces\adUsersConfig
-
-# Copy the trust.p12 certificate (if not already done)
-# Place trust.p12 in: C:\Workspaces\adUsersConfig\
-
-# Create/update application-external.properties with your LDAP details
-# See CONFIG_SETUP.md for detailed instructions
-```
-
-#### Option B: Using Embedded Configuration
-
-Configuration is defined in `src/main/resources/application.properties` with support for environment variable overrides:
-
-```properties
-spring.ldap.urls=${LDAP_URL:ldaps://your-ldap-server:636}
-spring.ldap.base=${LDAP_BASE:DC=your,DC=domain}
-spring.ldap.username=${LDAP_USERNAME:your-service-account}
-spring.ldap.password=${LDAP_PASSWORD:your-password}
-```
-
-### 2. Build the Application
+### Quick Reference
 
 ```bash
-cd ad-users-main
-mvn clean package
-```
+# Step 1: Create config directory
+mkdir C:\Workspaces\adUsersConfig
 
-This creates: `target/ad-users-demo-0.0.1-SNAPSHOT.jar`
+# Step 2: Copy template and fill in your values
+copy application-external.properties.template C:\Workspaces\adUsersConfig\application-external.properties
+# Edit the file with your LDAP server details, credentials, etc.
 
-### 3. Run the Application
+# Step 3: Set environment variable (Windows)
+set CONFIG_PATH=C:\Workspaces\adUsersConfig\
 
-#### Option A: Using Maven (Development)
-
-```bash
+# Step 4: Run the application
 mvn spring-boot:run
 ```
 
-#### Option B: Using JAR (Production)
-
-```bash
-java -jar target/ad-users-demo-0.0.1-SNAPSHOT.jar
-```
+For detailed instructions, troubleshooting, and environment-specific setup, see [SETUP_GUIDE.md](SETUP_GUIDE.md).
 
 The application will start on **http://localhost:8080**
 
