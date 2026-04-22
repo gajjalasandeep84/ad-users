@@ -30,4 +30,5 @@ public class LdapConfig {
 			@Value("${ad.prod.user}") String user, @Value("${ad.prod.pass}") String pass) {
 		return new LdapTemplate(buildCtx(url, base, user, pass));
 	}
+	//Testing
 }

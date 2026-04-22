@@ -19,7 +19,7 @@ import com.example.adusersdemo.util.AdTimeUtil;
 
 @Service
 public class AdUserService {
-
+//Testing
 	private static final DateTimeFormatter AD_DATE_FORMAT = DateTimeFormatter.ofPattern("yyyyMMddHHmmss.S'Z'");
 	private final LdapRouter router;
 

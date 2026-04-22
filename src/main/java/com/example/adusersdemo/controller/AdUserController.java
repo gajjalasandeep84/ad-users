@@ -16,7 +16,7 @@ public class AdUserController {
 
 	@Autowired
 	private AdUserService adUserService;
-
+//Testing
 	/*
 	 * @GetMapping("/ad/users") public List<AdUser> listUsers() { return
 	 * adUserService.getAllDevTestUsers(); }

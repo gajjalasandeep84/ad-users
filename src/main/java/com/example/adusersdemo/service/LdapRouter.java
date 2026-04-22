@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class LdapRouter {
-
+//Testing
 	private final LdapTemplate testTemplate;
 	private final LdapTemplate prodTemplate;
 
