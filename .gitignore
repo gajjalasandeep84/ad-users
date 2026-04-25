@@ -31,7 +31,6 @@ Thumbs.db
 
 # Environment/config secrets
 application-ldap.properties
-application.properties
 application-external.properties
 config/
 /config/
